@@ -55,6 +55,11 @@ A comprehensive installation document for how to install Islandora Multi-importe
     * If Drush is not installed please use Composer to install
     `composer global require drush/drush:7.*` (*installs newest version of Drush 7.x*)
 
+
+Various parts will install. If they install correctly, you will see (100%) at the end of each line.
+Composer might suggest installing several other tools, but don't.
+
+
   * **Additional tools?**
 
 ## Installation
