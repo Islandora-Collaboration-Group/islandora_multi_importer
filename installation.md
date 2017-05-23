@@ -95,6 +95,7 @@ http://localhost:8000/multi_importer
   2. CMODEL
   3. obj_file
   4. sequence
+  * Recommendation: Use standard datastream field names for column titles in your csv
   
   * associated object file
   
@@ -105,8 +106,6 @@ http://localhost:8000/multi_importer
   Here are some samples Twig templates:
   
   
-  **Using the IMI**
   
-  http://YourURL/multi-importer 
-  is where we get the IMI module
+  http://YourURL/multi-importer is where we get the IMI module
   
