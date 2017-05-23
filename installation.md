@@ -88,7 +88,7 @@ http://localhost:8000/multi_importer
 
 ### Prerequisites
 
-  In order to make this work, you will need:
+  **In order to make this work, you will need**:
   
   * a csv file with these four fields:
   1. parent
@@ -102,9 +102,8 @@ http://localhost:8000/multi_importer
     * Twig configuration  [Here is information about Twig](https://twig.sensiolabs.org/)
     * [Here is an initial MODS template for Twig](/templates/base_mods_template.twig). Remove any unnecessary definitions.
 
+  Here are some samples Twig templates:
   
-  
-  Here are some samples:
   
   **Using the IMI**
   
