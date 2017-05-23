@@ -84,6 +84,8 @@ http://localhost:8000/multi_importer
 
 ## Configuration
 
+### Prerequisites
+
 * **Twig configuration  [Here is information about Twig](https://twig.sensiolabs.org/)**
 * **[Here is a good starting template for Twig](/templates/base_mods_template.twig)**
 
