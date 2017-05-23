@@ -96,7 +96,7 @@ http://localhost:8000/multi_importer
   
   **Using the IMI**
   
-  Whatever your website is/multi-importer 
+  http://YourURL/multi-importer 
   is where we get the IMI module
   
   
