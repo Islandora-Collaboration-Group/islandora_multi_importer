@@ -99,12 +99,8 @@ http://localhost:8000/multi_importer
     * Recommendation: Use standard datastream field names for column titles in your csv
   * associated object file
   * Twig template
-    * Twig configuration  [Here is information about Twig](https://twig.sensiolabs.org/)
+    * [Here is information about Twig](https://twig.sensiolabs.org/)
     * [Here is an initial MODS template for Twig](/templates/base_mods_template.twig). Remove any unnecessary definitions.
-
-  Here are some samples Twig templates:
-  
-  
-  
-  http://YourURL/multi-importer is where we get the IMI module
+    * Here are some samples Twig templates:
+    * http://YourURL/multi-importer is where we get the IMI module
   
