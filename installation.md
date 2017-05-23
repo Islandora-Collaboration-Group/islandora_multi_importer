@@ -42,9 +42,11 @@ A comprehensive installation document for how to install Islandora Multi-importe
         * `composer --version` returns `Composer version 1.4.2 2017-05-17 08:17:52` (*example*)
 
   * **To test if you have Drush installed, command is**
+  
   *which drush
   
   * **To see which version of Drush is installed, command is**
+  
   *drush st
   
     * If using the Islandora Vagrant this tool is already installed
