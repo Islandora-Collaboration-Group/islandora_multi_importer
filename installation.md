@@ -40,7 +40,7 @@ A comprehensive installation document for how to install Islandora Multi-importe
 
       4. `php -r "unlink('composer-setup.php');"`
 
-      5. `sudo mv composer.phar to /usr/local/bin/composer`
+      5. `sudo mv composer.phar /usr/local/bin/composer`
 
       6. To test if Composer is installed:
         * `which composer` returns `/usr/local/bin/composer`
