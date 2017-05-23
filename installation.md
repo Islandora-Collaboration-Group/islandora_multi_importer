@@ -93,3 +93,5 @@ http://localhost:8000/multi_importer
   
   
   Here are some samples:
+  
+  *Using the IMI*
