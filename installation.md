@@ -84,4 +84,9 @@ http://localhost:8000/multi_importer
 
 ## Configuration
 
-* **Twig configuration**
+* **Twig configuration  [Here is information about Twig] (https://twig.sensiolabs.org/)**
+
+  To configure the IMI to work for you, you will need a Twig template.
+  
+  
+  Here are some samples:
