@@ -21,9 +21,9 @@ A comprehensive installation document for how to install Islandora Multi-importe
 ### Environment
 
   * Follow instructions at [Islandora-Labs Vagrant Virtual Machine](https://github.com/Islandora-Labs/islandora_vagrant)
+    * Edit ports if needed within the Vagrantfile
     * access via http://localhost:8000/
-    * Edit ports as needed within the Vagrantfile
-    * snapshots needed
+    * take a snapshot in case of need
 
 ### Dependencies
 
