@@ -83,3 +83,5 @@ Various parts will install. If they install correctly, you will see (100%) at th
 http://localhost:8000/multi_importer
 
 ## Configuration
+
+* **Twig configuration**
