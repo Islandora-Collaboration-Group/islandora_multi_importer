@@ -105,7 +105,8 @@ http://localhost:8000/multi_importer
     * http://YourURL/multi-importer is where we get the IMI module
   
 
-
+Wednesday:
+look through Pat's Google doc
 Document DSID to CSV field mapping
 Jessika will bring updated short csv file
 
