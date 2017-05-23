@@ -92,16 +92,12 @@ http://localhost:8000/multi_importer
   
   
   * a csv file with these four fields:
-  1. parent
-  2. CMODEL
-  3. obj_file
-  4. sequence
-  * Recommendation: Use standard datastream field names for column titles in your csv
-  
-
+    1. parent
+    2. CMODEL
+    3. obj_file
+    4. sequence
+    * Recommendation: Use standard datastream field names for column titles in your csv
   * associated object file
-  
-  
   * Twig template
     * Twig configuration  [Here is information about Twig](https://twig.sensiolabs.org/)
     * [Here is an initial MODS template for Twig](/templates/base_mods_template.twig). Remove any unnecessary definitions.
