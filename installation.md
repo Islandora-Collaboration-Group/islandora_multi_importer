@@ -50,7 +50,7 @@ A comprehensive installation document for how to install Islandora Multi-importe
     drush st
   
   
-    * If using the Islandora Vagrant this tool is already installed
+    * If using the Islandora Vagrant, Drush is already installed
 
     * If Drush is not installed please use Composer to install
     `composer global require drush/drush:7.*` (*installs newest version of Drush 7.x*)
