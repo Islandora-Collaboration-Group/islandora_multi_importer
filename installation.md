@@ -90,6 +90,7 @@ http://localhost:8000/multi_importer
 
   **In order to make this work, you will need**:
   
+  
   * a csv file with these four fields:
   1. parent
   2. CMODEL
@@ -97,7 +98,9 @@ http://localhost:8000/multi_importer
   4. sequence
   * Recommendation: Use standard datastream field names for column titles in your csv
   
+
   * associated object file
+  
   
   * Twig template
     * Twig configuration  [Here is information about Twig](https://twig.sensiolabs.org/)
