@@ -43,11 +43,11 @@ A comprehensive installation document for how to install Islandora Multi-importe
 
   * **To test if you have Drush installed, command is**
   
-  *which drush
+  * which drush
   
   * **To see which version of Drush is installed, command is**
   
-  *drush st
+  * drush st
   
     * If using the Islandora Vagrant this tool is already installed
 
