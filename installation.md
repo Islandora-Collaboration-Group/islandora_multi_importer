@@ -30,6 +30,8 @@ A comprehensive installation document for how to install Islandora Multi-importe
 
 
   * **To install Composer, follow this link: [Composer](https://getcomposer.org/download/)**
+  
+    Then:
 
       1. `sudo mv composer.phar /usr/local/bin/composer`
 
