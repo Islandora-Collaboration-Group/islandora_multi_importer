@@ -104,3 +104,7 @@ http://localhost:8000/multi_importer
     * Here are some samples Twig templates:
     * http://YourURL/multi-importer is where we get the IMI module
   
+
+
+Document DSID to CSV field mapping
+
