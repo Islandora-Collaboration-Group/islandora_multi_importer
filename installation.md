@@ -99,11 +99,9 @@ http://localhost:8000/multi_importer
   * associated object file
   
   * Twig template
+    * Twig configuration  [Here is information about Twig](https://twig.sensiolabs.org/)
+    * [Here is an initial MODS template for Twig](/templates/base_mods_template.twig). Remove any unnecessary definitions.
 
-* **Twig configuration  [Here is information about Twig](https://twig.sensiolabs.org/)**
-* **[Here is an initial MODS template for Twig](/templates/base_mods_template.twig)**. Remove any unnecessary definitions.
-
-  To configure the IMI to work for you, you will need a Twig template.
   
   
   Here are some samples:
@@ -113,9 +111,3 @@ http://localhost:8000/multi_importer
   http://YourURL/multi-importer 
   is where we get the IMI module
   
-  
-  In order to make this work, you will need a csv file with these four fields:
-  * parent
-  * CMODEL
-  * obj_file
-  * sequence
