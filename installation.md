@@ -82,9 +82,23 @@ Various parts will install. If they install correctly, you will see (100%) at th
 7. Navigate to section URL needed from Drupal site
 http://localhost:8000/multi_importer
 
-## Configuration
+## Using the IMI
+
+
 
 ### Prerequisites
+
+  In order to make this work, you will need:
+  
+  * a csv file with these four fields:
+  1. parent
+  2. CMODEL
+  3. obj_file
+  4. sequence
+  
+  * associated object file
+  
+  * Twig template
 
 * **Twig configuration  [Here is information about Twig](https://twig.sensiolabs.org/)**
 * **[Here is an initial MODS template for Twig](/templates/base_mods_template.twig)**. Remove any unnecessary definitions.
