@@ -94,7 +94,14 @@ http://localhost:8000/multi_importer
   
   Here are some samples:
   
-## Using the IMI
+  **Using the IMI**
   
   Whatever your website is/multi-importer 
   is where we get the IMI module
+  
+  
+  In order to make this work, you will need a csv file with these four fields:
+  * parent
+  * CMODEL
+  * obj_file
+  * sequence
