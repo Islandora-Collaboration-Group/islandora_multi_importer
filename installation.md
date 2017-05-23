@@ -27,6 +27,8 @@ A comprehensive installation document for how to install Islandora Multi-importe
 
 ### Dependencies
 
+* **ssh in
+
   * **[Composer](https://getcomposer.org/download/)**
 
     * To install Composer:
