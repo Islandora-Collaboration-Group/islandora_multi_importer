@@ -14,8 +14,4 @@
 
 [Twig Documentation] (http://twig.sensiolabs.org/documentation)
 
-## More info:
-
-[some link text](http://example.com)
-
 
