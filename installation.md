@@ -106,7 +106,7 @@ http://localhost:8000/multi_importer
   
 
 Wednesday:
-look through Pat's Google doc
+look through Pat's Google doc: https://docs.google.com/a/commonmediainc.com/document/d/1RKDeW2tZWPULMg7IM0x5ZioBQsa1wjA6VveQAx3YZ-s/edit?usp=sharing
 
 Document DSID to CSV field mapping
 
