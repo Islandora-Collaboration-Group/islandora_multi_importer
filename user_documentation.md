@@ -15,6 +15,9 @@ The csv file must have these four fields, plus whatever other metadata you want 
   2. CMODEL: Content model of associated object
   3. obj_file: File name of object associated with record to be ingested
   4. sequence:ingest sequence for object
+ 
+
+
 
 #### object file
 If the object file is a zip file, it must be at the top level of the archive.
