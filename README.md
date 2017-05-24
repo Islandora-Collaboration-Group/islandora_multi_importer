@@ -11,17 +11,13 @@
 - [Configuration](#configuration)
 
 ## Summary
-A comprehensive installation document for how to install Islandora Multi-importer.
+The Islandora Multi-importer offer highly configurable batch import functionality through the Drupal GUI.
 
 ## Assumptions
-
-Install this module in the usual way
 
 ## Prerequisites
 
 ### Environment
-
-
 
 
 ### Dependencies
@@ -53,7 +49,7 @@ Install this module in the usual way
 
 ## Installation
 
-Install as usual, see [this] (https://www.drupal.org/docs/7/extending-drupal-7/installing-contributed-modules) for further information.
+Install as usual, see [this](https://www.drupal.org/docs/7/extending-drupal-7/installing-contributed-modules) for further information.
 
 ### DCMNY admin documentation 
 
