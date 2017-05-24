@@ -21,7 +21,7 @@ The Islandora Multi-importer offer highly configurable batch import with .csv fi
 
 For more information on building Twig templates see the [Twig Documentation](http://twig.sensiolabs.org/documentation)
 
-Here is an initial MODS template for Twig. Remove any unnecessary definitions.
+Here is an [initial MODS template for Twig](/blob/installdoc/templates/base_mods_template.twig). Remove any unnecessary definitions.
 
 ## Dependencies
 
