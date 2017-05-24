@@ -1,4 +1,59 @@
-# islandora_multi_importer
+# Islandora Multi-importer Installation Documentation
+
+## Table of Contents
+
+- [Summary](#summary)
+- [Assumptions](#assumptions)
+- [Prerequisites](#prerequisites)
+  - [Environment](#environment)
+  - [Dependencies](#dependencies)
+- [Installation](#installation)
+- [Configuration](#configuration)
+
+## Summary
+A comprehensive installation document for how to install Islandora Multi-importer.
+
+## Assumptions
+
+Install this module in the usual way
+
+## Prerequisites
+
+### Environment
+
+
+
+
+### Dependencies
+
+  * **To install Composer, follow this link: [Composer](https://getcomposer.org/download/)**
+  
+    Then:
+
+      1. `sudo mv composer.phar /usr/local/bin/composer`
+
+      2. To test if Composer is installed:
+        * `which composer` returns `/usr/local/bin/composer`
+
+        * `composer --version` returns `Composer version 1.4.2 2017-05-17 08:17:52` (*example*)
+
+  * **To test if you have Drush installed, command is**
+  
+    which drush
+  
+  * **To see which version of Drush is installed, command is**
+  
+    drush st
+  
+  
+    * If using the Islandora Vagrant, Drush is already installed
+
+    * If Drush is not installed please use Composer to install
+    `composer global require drush/drush:7.*` (*installs newest version of Drush 7.x*)
+
+## Installation
+
+Install as usual, see [this] (https://www.drupal.org/docs/7/extending-drupal-7/installing-contributed-modules) for further information.
 
 ### DCMNY admin documentation 
 
