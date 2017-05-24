@@ -1,15 +1,15 @@
 ### Islandora Multi-importer Installation Documentation
 
-### Table of Contents
 
-Summary
-Assumptions
-Prerequisites
-Environment
-Dependencies
-Installation
-Configuration
-Summary
+## Table of Contents
+
+- [Summary](#summary)
+- [Assumptions](#assumptions)
+- [Prerequisites](#prerequisites)
+  - [Environment](#environment)
+  - [Dependencies](#dependencies)
+- [Installation](#installation)
+- [Configuration](#configuration)
 
 The Islandora Multi-importer offer highly configurable batch import functionality through the Drupal GUI.
 
