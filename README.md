@@ -11,13 +11,17 @@
 - [Configuration](#configuration)
 
 ## Summary
-The Islandora Multi-importer offer highly configurable batch import functionality through the Drupal GUI.
+The Islandora Multi-importer offer highly configurable batch import with .csv files through the Drupal GUI. The IMI relies on Twig templates in order to transform the data in your .csv to MODS. Associated object files can be ingested via zip files, http/s addresses, or your public/tmp folders on your Drupal server.
 
 ## Requirements
 
 * Islandora
 * Drush
 * Composer
+
+For more information on building Twig templates see the [Twig Documentation](http://twig.sensiolabs.org/documentation)
+
+Here is an initial MODS template for Twig. Remove any unnecessary definitions.
 
 ### Dependencies
 
