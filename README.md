@@ -1,6 +1,6 @@
-Islandora Multi-importer Installation Documentation
+### Islandora Multi-importer Installation Documentation
 
-Table of Contents
+### Table of Contents
 
 Summary
 Assumptions
