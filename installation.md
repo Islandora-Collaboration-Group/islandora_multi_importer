@@ -11,7 +11,7 @@
 - [Configuration](#configuration)
 
 ## Summary
-A comprehensive installation document for how to install and run Islandora Multi-importer.
+A comprehensive installation document for how to install and run Islandora Multi-importer..
 
 ## Assumptions
 * For HackDoc: Using the Islandora Labs Vagrant!
@@ -110,5 +110,5 @@ look through Pat's Google doc: https://docs.google.com/a/commonmediainc.com/docu
 
 Document DSID to CSV field mapping
 
-Jessika will bring updated short csv file
+Jessika will bring updated short csv file.
 
