@@ -23,7 +23,7 @@ Here is an [sample template for Twig](/blob/installdoc/templates/base_mods_templ
 
 ## Dependencies
 
-  * **To install Composer, follow the instructions at this link: [Composer](https://getcomposer.org/download/)**
+  * **To install Composer, follow the instructions at [Composer](https://getcomposer.org/download/)**
   
     Then:
 
