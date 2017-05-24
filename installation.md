@@ -1,4 +1,4 @@
-# Islandora Multi-importer Installation Documentation
+# Islandora Multi-importer Installation Documentation.
 
 ## Table of Contents
 
