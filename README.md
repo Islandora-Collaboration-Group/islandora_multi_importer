@@ -27,12 +27,7 @@ Here is an [sample template for Twig](/blob/installdoc/templates/base_mods_templ
   
     Then:
 
-      1. `sudo mv composer.phar /usr/local/bin/composer`
-
-      2. To test if Composer is installed:
-        * `which composer` returns `/usr/local/bin/composer`
-
-        * `composer --version` returns `Composer version 1.4.2 2017-05-17 08:17:52` (*example*)
+      * `sudo mv composer.phar /usr/local/bin/composer`
 
 ## Installation
 
