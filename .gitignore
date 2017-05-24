@@ -1,12 +1,61 @@
+# =========================
+# Custom ignores
+# =========================
+cfg.php
+config.php
+*.cfg.php
+CONFIG_*
+*.config.php
+*.bak
+*~
+_archives
+archives
+tmp
+temp
+.idea
+.htaccess
+.htpasswd
+tests/TestNarrowSuite.php
 
-vendor/*
 
-.idea/workspace.xml
+# =========================
+# Packages
+# =========================
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
 
-.idea/modules.xml
+# =========================
+# Folder config file
+# =========================
+Desktop.ini
 
-.idea/vcs.xml
+# =========================
+# Recycle Bin used on file shares
+# =========================
+$RECYCLE.BIN/
 
-.idea/islandora_multi_importer.iml
+# =========================
+# Windows Installer files
+# =========================
+*.cab
+*.msi
+*.msm
+*.msp
 
-.idea/copyright/profiles_settings.xml
+# =========================
+# OS generated files
+# =========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.AppleDouble
+.LSOverride
