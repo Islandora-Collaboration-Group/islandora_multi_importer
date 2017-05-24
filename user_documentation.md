@@ -11,6 +11,6 @@ In order to make this work, you will need:
   4. sequence
 * associated object file
 * Twig template
-  1. [Here is information about Twig](https://twig.sensiolabs.org/)
-  2. Here is an initial MODS template for Twig. Remove any unnecessary definitions.
-  3. Here are some sample Twig templates:
+  * [Here is information about Twig](https://twig.sensiolabs.org/)
+  * [Here is an initial MODS template for Twig.](https://github.com/Islandora-Collaboration-Group/islandora_multi_importer/blob/installdoc/templates/base_mods_template.twig) Remove any unnecessary definitions.
+  * Here are some sample Twig templates:
