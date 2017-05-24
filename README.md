@@ -21,7 +21,7 @@ The Islandora Multi-importer offer highly configurable batch import functionalit
 
 ### Dependencies
 
-  * **To install Composer, follow this link: [Composer](https://getcomposer.org/download/)**
+  * **To install Composer, follow the instructions at this link: [Composer](https://getcomposer.org/download/)**
   
     Then:
 
@@ -31,20 +31,6 @@ The Islandora Multi-importer offer highly configurable batch import functionalit
         * `which composer` returns `/usr/local/bin/composer`
 
         * `composer --version` returns `Composer version 1.4.2 2017-05-17 08:17:52` (*example*)
-
-  * **To test if you have Drush installed, command is**
-  
-    which drush
-  
-  * **To see which version of Drush is installed, command is**
-  
-    drush st
-  
-  
-    * If using the Islandora Vagrant, Drush is already installed
-
-    * If Drush is not installed please use Composer to install
-    `composer global require drush/drush:7.*` (*installs newest version of Drush 7.x*)
 
 ## Installation
 
