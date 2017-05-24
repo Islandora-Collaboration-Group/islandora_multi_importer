@@ -216,9 +216,11 @@
 
     {# <identifier type="type">id</identifier> #}
     {% for val in data.identifier|split ('|') %}
-        {% for list(id,type) in val|split (':',2) %}
-            <identifier type="{{ type|trim }}">{{ id|trim }}</identifier>
-        {% endfor %}
+        {% set id = val|split (':',2) %}
+        {# needs error handling to ensure that each value has the expected number of parts (i.e. 2) #}
+        {# DC2016_209_stetson01:filename| AC 12:collectionnumber #}
+        {# {{ dump(id) }} #}
+            <identifier type="{{ id[1]|trim }}">{{ id[0]|trim }}</identifier>
     {% endfor %}
 
     <recordInfo>
