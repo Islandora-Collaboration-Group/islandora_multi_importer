@@ -23,7 +23,7 @@ For more information on building Twig templates see the [Twig Documentation](htt
 
 Here is an initial MODS template for Twig. Remove any unnecessary definitions.
 
-### Dependencies
+## Dependencies
 
   * **To install Composer, follow the instructions at this link: [Composer](https://getcomposer.org/download/)**
   
@@ -57,6 +57,5 @@ and run:
 
 [Sample Twig Templates (for use with multi-importer ingest)](https://github.com/mnylc/dcmny/tree/master/twig)
 
-[Twig Documentation](http://twig.sensiolabs.org/documentation)
 
 
