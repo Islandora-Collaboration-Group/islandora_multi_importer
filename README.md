@@ -3,7 +3,7 @@
 ## Table of Contents
 
 - [Summary](#summary)
-- [Assumptions](#assumptions)
+- [Requirements](#requirements)
 - [Prerequisites](#prerequisites)
   - [Environment](#environment)
   - [Dependencies](#dependencies)
@@ -13,12 +13,11 @@
 ## Summary
 The Islandora Multi-importer offer highly configurable batch import functionality through the Drupal GUI.
 
-## Assumptions
+## Requirements
 
-## Prerequisites
-
-### Environment
-
+* Islandora
+* Drush
+* Composer
 
 ### Dependencies
 
