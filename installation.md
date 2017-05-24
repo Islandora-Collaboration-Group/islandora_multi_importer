@@ -92,23 +92,23 @@ http://localhost:8000/multi_importer
   
   
   * a csv file with these four fields:
-  1. parent
-  2. CMODEL
-  3. obj_file
-  4. sequence
-  * Recommendation: Use standard datastream field names for column titles in your csv
-  
-
+    1. parent
+    2. CMODEL
+    3. obj_file
+    4. sequence
+    * Recommendation: Use standard datastream field names for column titles in your csv
   * associated object file
-  
-  
   * Twig template
-    * Twig configuration  [Here is information about Twig](https://twig.sensiolabs.org/)
+    * [Here is information about Twig](https://twig.sensiolabs.org/)
     * [Here is an initial MODS template for Twig](/templates/base_mods_template.twig). Remove any unnecessary definitions.
+    * Here are some sample Twig templates:
+    * http://YourURL/multi-importer is where we get the IMI module
+  
 
-  Here are some samples Twig templates:
-  
-  
-  
-  http://YourURL/multi-importer is where we get the IMI module
-  
+Wednesday:
+look through Pat's Google doc: https://docs.google.com/a/commonmediainc.com/document/d/1RKDeW2tZWPULMg7IM0x5ZioBQsa1wjA6VveQAx3YZ-s/edit?usp=sharing
+
+Document DSID to CSV field mapping
+
+Jessika will bring updated short csv file
+
