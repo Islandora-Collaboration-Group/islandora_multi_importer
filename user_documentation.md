@@ -14,3 +14,5 @@ In order to make this work, you will need:
   * [Here is information about Twig](https://twig.sensiolabs.org/)
   * [Here is an initial MODS template for Twig.](https://github.com/Islandora-Collaboration-Group/islandora_multi_importer/blob/installdoc/templates/base_mods_template.twig) Remove any unnecessary definitions.
   * Here are some sample Twig templates:
+
+We also need to document DSID to CSV field mapping
