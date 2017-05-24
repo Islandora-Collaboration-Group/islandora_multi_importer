@@ -40,7 +40,7 @@ and run:
 
 ### Templates
 
-[DCMNY Metadata Spreadsheet (for use with multi-importer ingest)] (https://docs.google.com/spreadsheets/d/1fL9oO_x35tUx3wKSZ4a848ravc4Oh1Wjk5ykU3H1Ti8/edit?usp=sharing)
+[DCMNY Metadata Spreadsheet (for use with multi-importer ingest)](https://docs.google.com/spreadsheets/d/1fL9oO_x35tUx3wKSZ4a848ravc4Oh1Wjk5ykU3H1Ti8/edit?usp=sharing)
 
 ### Samples
 
