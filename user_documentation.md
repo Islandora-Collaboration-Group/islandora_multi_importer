@@ -30,12 +30,14 @@ If the object file is a zip file, it must be at the top level of the archive.
   
 ### Using the importer
   
-  [open the importer...]
-
+  Open the importer at: localhost:8000/multi-importer
+  
 
 * Upload spreadsheet 
 * Click Preprocess
-* The next screen has four tabs
+* The next screen has four tabs. Each tab has an "Ingest" button, but do not click this button until you have been through all four tabs.
+  * Use the "Your Data" tab to preview your submitted data. This step is optional.
+  * Use the "Templating" tab to 
   
 
 We also need to document DSID to CSV field mapping
