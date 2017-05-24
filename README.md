@@ -46,7 +46,7 @@ and run:
 
 [Sample CSV (configured for multi-importer ingest)](https://drive.google.com/file/d/0BzuVASmQStk8dWJ6UGt6bmphcGs/view?usp=sharing)
 
-(Sample sets (.csv, zipped Objects, twig files))[/tree/installdoc/samples]
+[(Sample sets (.csv, zipped Objects, twig files)](/tree/installdoc/samples)
 
 ### User documentation
 
