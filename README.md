@@ -36,8 +36,8 @@ The Islandora Multi-importer offer highly configurable batch import functionalit
 
 Install as usual, see [this](https://www.drupal.org/docs/7/extending-drupal-7/installing-contributed-modules) for further information.
 
-Once you've cloned this repo, you will need to navigate to the newly cloned directory cd /var/www/drupal/sites/all/modules/islandora_multi_importer/
-and run Composer command 
+Once you've cloned this repo, you will need to navigate to the newly cloned directory 
+and run:
 
         * composer install
 
