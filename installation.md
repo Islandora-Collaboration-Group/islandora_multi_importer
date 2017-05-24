@@ -11,7 +11,7 @@
 - [Configuration](#configuration)
 
 ## Summary
-A comprehensive installation document for how to install Islandora Multi-importer.
+A comprehensive installation document for how to install and run Islandora Multi-importer.
 
 ## Assumptions
 * For HackDoc: Using the Islandora Labs Vagrant!
