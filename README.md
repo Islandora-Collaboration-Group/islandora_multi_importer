@@ -4,11 +4,9 @@
 
 - [Summary](#summary)
 - [Requirements](#requirements)
-- [Prerequisites](#prerequisites)
-  - [Environment](#environment)
-  - [Dependencies](#dependencies)
+- [Dependencies](#dependencies)
 - [Installation](#installation)
-- [Configuration](#configuration)
+
 
 ## Summary
 The Islandora Multi-importer offer highly configurable batch import with .csv files through the Drupal GUI. The IMI relies on Twig templates in order to transform the data in your .csv to MODS. Associated object files can be ingested via zip files, http/s addresses, or your public/tmp folders on your Drupal server.
@@ -21,7 +19,7 @@ The Islandora Multi-importer offer highly configurable batch import with .csv fi
 
 For more information on building Twig templates see the [Twig Documentation](http://twig.sensiolabs.org/documentation)
 
-Here is an [initial MODS template for Twig](/blob/installdoc/templates/base_mods_template.twig). Remove any unnecessary definitions.
+Here is an [sample template for Twig](/blob/installdoc/templates/base_mods_template.twig). More [sample Twig Templates (for use with multi-importer ingest)](https://github.com/mnylc/dcmny/tree/master/twig).
 
 ## Dependencies
 
@@ -53,9 +51,7 @@ and run:
 
 [DCMNY Metadata Spreadsheet (for use with multi-importer ingest)] (https://docs.google.com/spreadsheets/d/1fL9oO_x35tUx3wKSZ4a848ravc4Oh1Wjk5ykU3H1Ti8/edit?usp=sharing)
 
-### Twig
 
-[Sample Twig Templates (for use with multi-importer ingest)](https://github.com/mnylc/dcmny/tree/master/twig)
 
 
 
