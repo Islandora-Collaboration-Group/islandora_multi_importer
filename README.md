@@ -39,7 +39,7 @@ Install as usual, see [this](https://www.drupal.org/docs/7/extending-drupal-7/in
 Once you've cloned this repo, you will need to navigate to the newly cloned directory cd /var/www/drupal/sites/all/modules/islandora_multi_importer/
 and run Composer command 
 
-composer install
+        * `composer --version` returns `Composer version 1.4.2 2017-05-17 08:17:52` (*example*)
 
 ### DCMNY admin documentation 
 
