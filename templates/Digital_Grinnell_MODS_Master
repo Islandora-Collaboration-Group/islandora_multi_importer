@@ -236,7 +236,7 @@ self-transform produces.
 {# Supports relations of the form related_item1~type1 | related_item2 | related_item3~type3 #}
 {# If ~type is omitted, as in related_item2 above, the type = 'isPartOf' is assumed #}
 {% if  attribute(data, 'related_items~types') %}
-  {% for relation in attribute(data, 'relatied_items~types')|split('|') %}
+  {% for relation in attribute(data, 'related_items~types')|split('|') %}
     {% if '~' in relation %}
       {% set relation_parts = relation|split('~',2) %}
 			<relatedItem type='{{ relation_parts[1]|trim }}'>
@@ -260,7 +260,7 @@ self-transform produces.
 <extension>
 	<primarySort>1</primarySort>
 	{% if attribute(data, 'import_index') %}
-	  <dg_importIndex>data.import_index</dg_importIndex>
+	  <dg_importIndex>{{ data.import_index }}</dg_importIndex>
 	{% endif %}
 	<dg_creators/>
 </extension>
