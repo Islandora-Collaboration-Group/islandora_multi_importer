@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+{# Digital_Grinnell_MODS_Master.twig
+
+This TWIG template for IMI import is intended to serve as a general-purpose
+starting point for MODS import into Digital Grinnell.
+
+History -----------------------------------------
+Derived from CoC.twig
+  IMI twig template created for ingest of PHPP - Chamber of Commerce objects.  MM 24-July-2017
+Derived from dg_base_mods_template.twig
+  Created 1-May-2017 from base_mods_template.twig that shipped with the IMI module.
+
+Note that the order of MODS elements here is significant.  It is the same order that our --reorder
+self-transform produces.
+
+-Mark M.
+#}
+
+{% block content %}
+{% autoescape false %}
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mods="http://www.loc.gov/mods/v3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd">
+
+<titleInfo>
+	<title>{{ data.title }}</title>
+</titleInfo>
+
+{# Creator/Contributor personal names logic of the form name1~role1|name2~role2|name3|name4~role4 #}
+{# Note that when role is omitted, like name3 above, 'Creator' is assumed #}
+{% if  attribute(data, 'personal_names~roles') %}
+  {% for name in attribute(data, 'personal_names~roles')|split('|') %}
+    <name type="personal">
+    {% if '~' in name %}
+	    {% set pcc_parts = name|split('~',2) %}
+			<namePart>{{ pcc_parts[0]|trim }}</namePart>
+	    <role>
+		    <roleTerm type="text">{{ pcc_parts[1]|trim }}</roleTerm>
+	    </role>
+    {% else %}
+  		<namePart>{{ name|trim }}</namePart>
+	  	<role>
+		  	<roleTerm type="text">Creator</roleTerm>
+		  </role>
+	  {% endif %}
+	  </name>
+  {% endfor %}
+{% endif %}
+
+{# Creator/Contributor corporate names logic of the form name1~role1|name2~role2|name3|name4~role4 #}
+{# Note that when role is omitted, like name3 above, 'Creator' is assumed #}
+{% if  attribute(data, 'corporate_names~roles') %}
+  {% for name in attribute(data, 'corporate_names~roles')|split('|') %}
+    <name type="corporate">
+    {% if '~' in name %}
+	    {% set ccc_parts = name|split('~',2) %}
+			<namePart>{{ ccc_parts[0]|trim }}</namePart>
+	    <role>
+		    <roleTerm type="text">{{ ccc_parts[1]|trim }}</roleTerm>
+	    </role>
+    {% else %}
+  		<namePart>{{ name|trim }}</namePart>
+	  	<role>
+		  	<roleTerm type="text">Creator</roleTerm>
+		  </role>
+	  {% endif %}
+	  </name>
+  {% endfor %}
+{% endif %}
+
+<abstract>{{ data.abstract }}</abstract>
+
+{% if attribute(data, 'index_date') or attribute(data, 'other_date') or attribute(data, 'date_issued') or attribute(data, 'publisher') or attribute(data, 'place_of_publication') or attribute(data, 'date_captured') %}
+	<originInfo>
+  {% if attribute(data, 'index_date') %}
+		<dateCreated>{{ data.index_date }}</dateCreated>
+  {% endif %}
+  {% if attribute(data, 'other_date') %}
+		<dateOther>{{ data.other_date }}</dateOther>
+  {% endif %}
+  {% if attribute(data, 'date_issued') %}
+		<dateIssued>{{ data.date_issued }}</dateIssued>
+  {% endif %}
+  {% if attribute(data, 'date_captured') %}
+		<dateCaptured>{{ data.date_captured }}</dateCaptured>
+  {% endif %}
+  {% if attribute(data, 'publisher') %}
+		<publisher>{{ data.publisher }}</publisher>
+  {% endif %}
+  {% if attribute(data, 'place_of_publication') %}
+		<place>
+			<placeTerm type="text">{{ data.place_of_publication }}</placeTerm>
+		</place>
+  {% endif %}
+	</originInfo>
+{% endif %}
+
+{# July 2017... Replacing the simple note1|note2 logic below with support for note1~type1|note2|note3~type3 logic #}
+{% if  attribute(data, 'public_notes~types') %}
+  {% for note in attribute(data, 'public_notes~types')|split('|') %}
+    {% if '~' in note %}
+      {% set note_parts = note|split('~',2) %}
+	    <note type='{{ note_parts[1]|trim }}'>{{ note_parts[0]|trim }}</note>
+    {% else %}
+ 	    <note>{{ note|trim }}</note>
+	  {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if attribute(data, 'keywords') %}
+  <subject>
+  {% for keyword in attribute(data, 'keywords')|split('|') %}
+	  <topic>{{ keyword|trim }}</topic>
+  {% endfor %}
+  </subject>
+{% endif %}
+
+{% if  attribute(data, 'subjects') %}
+  <subject authority="lcsh">
+  {% for topic in attribute(data, 'subjects')|split('|') %}
+	  <topic>{{ topic|trim }}</topic>
+  {% endfor %}
+  </subject>
+{% endif %}
+
+{% if  attribute(data, 'subjects_geographic') %}
+  <subject authority="lcsh">
+  {% for geographic in attribute(data, 'subjects_geographic')|split('|') %}
+	  <geographic>{{ geographic|trim }}</geographic>
+  {% endfor %}
+  </subject>
+{% endif %}
+
+{% if  attribute(data, 'subjects_temporal') %}
+  <subject authority="lcsh">
+  {% for temporal in attribute(data, 'subjects_temporal')|split('|') %}
+	  <temporal>{{ temporal|trim }}</temporal>
+  {% endfor %}
+  </subject>
+{% endif %}
+
+{% if  attribute(data, 'subjects_name') %}
+  {% for subjectname in attribute(data, 'subjects_name')|split('|') %}
+  <subject authority="lcsh">
+	  <name>
+		  <namePart>{{ subjectname|trim }}</namePart>
+	  </name>
+  </subject>
+  {% endfor %}
+{% endif %}
+
+{% if  attribute(data, 'subjects_name_personal') %}
+  {% for subjectname in attribute(data, 'subjects_name_personal')|split('|') %}
+    <subject authority="lcsh">
+	    <name type="personal">
+		    <namePart>{{ subjectname|trim }}</namePart>
+	    </name>
+    </subject>
+  {% endfor %}
+{% endif %}
+
+{% if  attribute(data, 'subjects_name_corporate') %}
+  {% for subjectname in attribute(data, 'subjects_name_corporate')|split('|') %}
+    <subject authority="lcsh">
+	    <name type="corporate">
+		    <namePart>{{ subjectname|trim }}</namePart>
+	    </name>
+    </subject>
+  {% endfor %}
+{% endif %}
+
+{% if  attribute(data, 'coordinate') %}
+  <subject>
+	  <cartographics>
+		  <coordinates>{{ data.coordinate }}</coordinates>
+	  </cartographics>
+  </subject>
+{% endif %}
+
+{% if  attribute(data, 'type_of_resource') %}
+  <typeOfResource>{{ data.type_of_resource|trim }}</typeOfResource>
+{% endif %}
+
+{% if  attribute(data, 'genre') %}
+  <genre>{{ data.genre|trim }}</genre>
+{% endif %}
+
+{% if attribute(data, 'extent') or attribute(data, 'form') %}
+  <physicalDescription>
+	  {% if attribute(data, 'form') %}
+	    <form>{{ data.form }}</form>
+	  {% endif %}
+	  {% if attribute(data, 'extent') %}
+		  <extent>{{ data.extent }}</extent>
+	  {% endif %}
+	  <internetMediaType>{{ data.mime_type }}</internetMediaType>
+	  <digitalOrigin>{{ data.digital_origin }}</digitalOrigin>
+  </physicalDescription>
+{% endif %}
+
+{% if  attribute(data, 'language_names~codes') %}
+  <language>
+  {% for language in attribute(data, 'language_names~codes')|split('|') %}
+    {% if '~' in language %}
+	    {% set lparts = language|split('~',2) %}
+	    <languageTerm type="text">{{ lparts[0]|trim }}</languageTerm>
+			<languageTerm type="code" authority="iso639-2b">{{ lparts[1]|trim }}</languageTerm>
+    {% else %}
+			<languageTerm type="text">{{ language|trim }}</languageTerm>
+		{% endif %}
+  {% endfor %}
+  </language>
+{% endif %}
+
+{% if attribute(data, 'local_identifier') %}
+	<identifier type="local">{{ data.local_identifier|trim }}</identifier>
+{% endif %}
+
+{% if attribute(data, 'physical_location') or attribute(data, 'shelf_locator') %}
+	<location>
+{% if attribute(data, 'physical_location') %}
+		<physicalLocation>{{ data.physical_location }}</physicalLocation>
+{% endif %}
+{% if attribute(data, 'shelf_locator') %}
+		<shelfLocator>{{ data.shelf_locator }}</shelfLocator>
+{% endif %}
+	</location>
+{% endif %}
+
+{# This block is CUSTOM...it is specific to ALL Digital Grinnell objects #}
+<relatedItem type="isPartOf">
+	<titleInfo>
+		<title>Digital Grinnell</title>
+	</titleInfo>
+</relatedItem>
+
+{# Supports relations of the form related_item1~type1 | related_item2 | related_item3~type3 #}
+{# If ~type is omitted, as in related_item2 above, the type = 'isPartOf' is assumed #}
+{% if  attribute(data, 'related_items~types') %}
+  {% for relation in attribute(data, 'relatied_items~types')|split('|') %}
+    {% if '~' in relation %}
+      {% set relation_parts = relation|split('~',2) %}
+			<relatedItem type='{{ relation_parts[1]|trim }}'>
+				<titleInfo>
+					<title>{{ relation_parts[0] }}</title>
+				</titleInfo>
+			</relatedItem>
+		{% else %}
+		  <relatedItem type='isPartOf'>
+			  <titleInfo>
+				  <title>{{ relation }}</title>
+			  </titleInfo>
+		  </relatedItem>
+		{% endif %}
+  {% endfor %}
+{% endif %}
+
+<accessCondition type="useAndReproduction">{{ data.rights }}</accessCondition>
+
+{# The following MODS extension elements may be specific to Digital Grinnell! #}
+<extension>
+	<primarySort>1</primarySort>
+	{% if attribute(data, 'import_index') %}
+	  <dg_importIndex>data.import_index</dg_importIndex>
+	{% endif %}
+	<dg_creators/>
+</extension>
+
+</mods>
+{% endautoescape %}
+{% endblock %}
