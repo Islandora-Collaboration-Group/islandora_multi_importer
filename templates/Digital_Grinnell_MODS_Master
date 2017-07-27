@@ -114,9 +114,9 @@ self-transform produces.
   </subject>
 {% endif %}
 
-{% if  attribute(data, 'subjects') %}
+{% if  attribute(data, 'lcsh_subjects') %}
   <subject authority="lcsh">
-  {% for topic in attribute(data, 'subjects')|split('|') %}
+  {% for topic in attribute(data, 'lcsh_subjects')|split('|') %}
 	  <topic>{{ topic|trim }}</topic>
   {% endfor %}
   </subject>
@@ -254,7 +254,11 @@ self-transform produces.
   {% endfor %}
 {% endif %}
 
-<accessCondition type="useAndReproduction">{{ data.rights }}</accessCondition>
+{% if attribute(data, 'rights') %}
+	<accessCondition type="useAndReproduction">{{ data.rights }}</accessCondition>
+{% else %}
+	<accessCondition type="useAndReporoduction">Copyright to this work is held by the author(s), in accordance with United States copyright law (USC 17). Readers of this work have certain rights as defined by the law, including but not limited to fair use (17 USC 107 et seq.).</accessCondition>
+{% endif %}
 
 {# The following MODS extension elements may be specific to Digital Grinnell! #}
 <extension>
