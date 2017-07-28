@@ -5,6 +5,9 @@
 This TWIG template for IMI import is intended to serve as a general-purpose
 starting point for MODS import into Digital Grinnell.
 
+The canonical copy of this Twig is part of a 4-tab Google Sheet named
+Digital_Grinnell_MODS_Master.  
+
 History -----------------------------------------
 Derived from CoC.twig
   IMI twig template created for ingest of PHPP - Chamber of Commerce objects.  MM 24-July-2017
@@ -15,6 +18,61 @@ Note that the order of MODS elements here is significant.  It is the same order 
 self-transform produces.
 
 -Mark M.
+
+Use ----------------------------------------------
+This TWIG generally supports four field syntaxes…
+
+	value				   				 …for simple single-valued fields.  The header on this field should be singular.
+	value~attr			   				 …for a single-valued field with an optional attribute.  The header on this field should be singular but include a ‘~something’ suffix.
+	value1 | value2 | value3   				 …for simple multi-valued fields.  The header on this field should be plural to indicate that it can be multivalued.
+	valuet1~attr1 | value2 | value3~attr3 	…for multi-valued fields with attribute possibilities.  This needs a plural header with a ‘~something’ suffix.
+
+In the 2nd and 4th syntaxes a value may exist without an attribute, like ‘value2’ in the
+line above.  When no ~attribute is present a default will be assumed and that
+default is defined in the Twig file.  The default varies from field-to-field.
+
+An example…
+
+	Personal_Names~Roles
+	——————————————————————————————————————
+	Doe, Jane | Doe, John ~ spouse | Kong, King ~ gorilla
+
+In the above example ‘Jane Doe’ would be identified as the ‘Creator’, since that
+is the default personal name role in our Twig template.  ‘John Doe’ and ‘King Kong’
+would be identified as contributors with roles of ‘spouse’ and ‘gorilla’,
+respectively.  The MODS from this field would look like this...
+
+	<name type=‘personal’>
+		<namePart>Doe, Jane</namePart>
+		<role>
+			<roleTerm type=‘text'>Creator</roleTerm>
+		</role>
+	</name>
+	<name type=‘personal’>
+		<namePart>Doe, John</namePart>
+		<role>
+			<roleTerm type=‘text’>spouse</roleTerm>
+		</role>
+	</name>
+	<name type=‘personal’>
+		<namePart>Kong, King</namePart>
+		<role>
+			<roleTerm type=‘text’>gorilla</roleTerm>
+		</role>
+	</name>
+
+--------------------------------------------------------
+The corresponding worksheet headers should be ordered and read like this...
+
+PID, STATUS,	Import_Index,	PARENT,	CMODEL,	SEQUENCE,	OBJ, Title,
+Alternative_Titles,	Personal_Names~Roles,	Corporate_Names~Roles, Abstract,
+Index_Date,	Other_Date~Display_Label,	Date_Issued, Date_Captured,	Publisher,
+Place_Of_Publication,	Public_Notes~Types,	Private_Notes~Types, Keywords,
+LCSH_Subjects, Subjects_Temporal, Subjects_Geographic, Subjects_Names~Types,
+Coordinate,	Type_of_Resource,	Genre, Extent, Form, MIME_Type, Digital_Origin,
+Language_Names~Codes,	Local_Identifier,	Physical_Location, Shelf_Locator,
+Classifications~authorities, Related_Items~types,	Access_Condition
+
 #}
 
 {% block content %}
@@ -24,6 +82,14 @@ self-transform produces.
 <titleInfo>
 	<title>{{ data.title }}</title>
 </titleInfo>
+
+{% if attribute(data, 'alternative_titles') %}
+  <titleInfo type='alternative'>
+  {% for title in attribute(data, 'alternative_titles')|split('|') %}
+	  <title>{{ title|trim }}</title>
+  {% endfor %}
+  </titleInfo>
+{% endif %}
 
 {# Creator/Contributor personal names logic of the form name1~role1|name2~role2|name3|name4~role4 #}
 {# Note that when role is omitted, like name3 above, 'Creator' is assumed #}
@@ -106,6 +172,18 @@ self-transform produces.
   {% endfor %}
 {% endif %}
 
+{# @TODO...This logic needs some attention! #}
+{% if  attribute(data, 'private_notes~types') %}
+  {% for pr_note in attribute(data, 'private_notes~types')|split('|') %}
+    {% if '~' in pr_note %}
+      {% set pr_note_parts = pr_note|split('~',2) %}
+	    <note type='{{ pr_note_parts[1]|trim }}'>{{ pr_note_parts[0]|trim }}</note>
+    {% else %}
+ 	    <note>{{ pr_note|trim }}</note>
+	  {% endif %}
+  {% endfor %}
+{% endif %}
+
 {% if attribute(data, 'keywords') %}
   <subject>
   {% for keyword in attribute(data, 'keywords')|split('|') %}
@@ -138,33 +216,20 @@ self-transform produces.
   </subject>
 {% endif %}
 
-{% if  attribute(data, 'subjects_name') %}
-  {% for subjectname in attribute(data, 'subjects_name')|split('|') %}
-  <subject authority="lcsh">
-	  <name>
-		  <namePart>{{ subjectname|trim }}</namePart>
-	  </name>
+{% if  attribute(data, 'subjects_names~types') %}
+  {% for subjects_name in attribute(data, 'subjects_names~types')|split('|') %}
+	<subject authority="lcsh">
+  	{% if '~' in subjects_name %}
+		  {% set subjects_name_parts = subjects_name|split('~',2) %}
+			<name type='{{ subjects_name_parts[1]|trim }}'>
+			  <namePart>{{ subjects_name_parts[0]|trim }}</namePart>
+		  </name>
+	  {% else %}
+  	  <name>
+	  	  <namePart>{{ subjects_name|trim }}</namePart>
+	    </name>
+	  {% endif %}
   </subject>
-  {% endfor %}
-{% endif %}
-
-{% if  attribute(data, 'subjects_name_personal') %}
-  {% for subjectname in attribute(data, 'subjects_name_personal')|split('|') %}
-    <subject authority="lcsh">
-	    <name type="personal">
-		    <namePart>{{ subjectname|trim }}</namePart>
-	    </name>
-    </subject>
-  {% endfor %}
-{% endif %}
-
-{% if  attribute(data, 'subjects_name_corporate') %}
-  {% for subjectname in attribute(data, 'subjects_name_corporate')|split('|') %}
-    <subject authority="lcsh">
-	    <name type="corporate">
-		    <namePart>{{ subjectname|trim }}</namePart>
-	    </name>
-    </subject>
   {% endfor %}
 {% endif %}
 
@@ -226,6 +291,17 @@ self-transform produces.
 	</location>
 {% endif %}
 
+{% if  attribute(data, 'classifications~authorities') %}
+  {% for classification in attribute(data, 'classifications~authorities')|split('|') %}
+    {% if '~' in classification %}
+	    {% set classification_parts = classification|split('~',2) %}
+	    <classification authoritiy='{{ classification_parts[1]|trim }}' type='mixed'>{{ classification_parts[0]|trim }}</classification>
+    {% else %}
+  		<classification type='mixed'>{{ classification|trim }}</classification>
+		{% endif %}
+  {% endfor %}
+{% endif %}
+
 {# This block is CUSTOM...it is specific to ALL Digital Grinnell objects #}
 <relatedItem type="isPartOf">
 	<titleInfo>
@@ -254,8 +330,8 @@ self-transform produces.
   {% endfor %}
 {% endif %}
 
-{% if attribute(data, 'rights') %}
-	<accessCondition type="useAndReproduction">{{ data.rights }}</accessCondition>
+{% if attribute(data, 'access_condition') %}
+	<accessCondition type="useAndReproduction">{{ data.access_condition }}</accessCondition>
 {% else %}
 	<accessCondition type="useAndReporoduction">Copyright to this work is held by the author(s), in accordance with United States copyright law (USC 17). Readers of this work have certain rights as defined by the law, including but not limited to fair use (17 USC 107 et seq.).</accessCondition>
 {% endif %}
