@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-{# Digital_Grinnell_MODS_Master.twig
+{# Digital_Grinnell_MODS_Master.twig  Rev. 1
 
 This TWIG template for IMI import is intended to serve as a general-purpose
 starting point for MODS import into Digital Grinnell.
