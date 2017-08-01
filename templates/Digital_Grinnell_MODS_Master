@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-{# Digital_Grinnell_MODS_Master.twig  Rev. 2
+{# Digital_Grinnell_MODS_Master.twig  Rev. 3
 
 This TWIG template for IMI import is intended to serve as a general-purpose
 starting point for MODS import into Digital Grinnell.
@@ -9,6 +9,8 @@ The canonical copy of this Twig is part of a 4-tab Google Sheet named
 Digital_Grinnell_MODS_Master.  
 
 History -----------------------------------------
+Rev. 3
+  Removed capitalization on default 'Creator' roleTerm, and removed the <dg_creators> element entirely.
 Rev. 2
   Added ~Display_Label to the Other_Date field, '|trim' to all of the originInfo fields, and 
         {% if name is not null and name|trim is not empty %} to all multi-value fields.
@@ -50,7 +52,7 @@ respectively.  The MODS from this field would look like this...
 	<name type=‘personal’>
 		<namePart>Doe, Jane</namePart>
 		<role>
-			<roleTerm type=‘text'>Creator</roleTerm>
+			<roleTerm type=‘text'>creator</roleTerm>
 		</role>
 	</name>
 	<name type=‘personal’>
@@ -111,7 +113,7 @@ Classifications~authorities, Related_Items~types,	Access_Condition
       {% else %}
   	<namePart>{{ name|trim }}</namePart>
 	<role>
-	  <roleTerm type="text">Creator</roleTerm>
+	  <roleTerm type="text">creator</roleTerm>
 	</role>
       {% endif %}
       </name>
@@ -134,7 +136,7 @@ Classifications~authorities, Related_Items~types,	Access_Condition
         {% else %}
   	  <namePart>{{ name|trim }}</namePart>
 	  <role>
-	    <roleTerm type="text">Creator</roleTerm>
+	    <roleTerm type="text">creator</roleTerm>
 	  </role>
 	{% endif %}
       </name>
