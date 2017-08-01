@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-{# Digital_Grinnell_MODS_Master.twig  Rev. 1
+{# Digital_Grinnell_MODS_Master.twig  Rev. 2
 
 This TWIG template for IMI import is intended to serve as a general-purpose
 starting point for MODS import into Digital Grinnell.
@@ -9,6 +9,10 @@ The canonical copy of this Twig is part of a 4-tab Google Sheet named
 Digital_Grinnell_MODS_Master.  
 
 History -----------------------------------------
+Rev. 2
+  Added ~ Display_Label to the Other_Date field.
+Rev. 1
+  Initial MASTER saved on 28-July-2017
 Derived from CoC.twig
   IMI twig template created for ingest of PHPP - Chamber of Commerce objects.  MM 24-July-2017
 Derived from dg_base_mods_template.twig
@@ -135,29 +139,34 @@ Classifications~authorities, Related_Items~types,	Access_Condition
 
 <abstract>{{ data.abstract }}</abstract>
 
-{% if attribute(data, 'index_date') or attribute(data, 'other_date') or attribute(data, 'date_issued') or attribute(data, 'publisher') or attribute(data, 'place_of_publication') or attribute(data, 'date_captured') %}
-	<originInfo>
+{% if attribute(data, 'index_date') or attribute(data, 'other_date~display_label') or attribute(data, 'date_issued') or attribute(data, 'publisher') or attribute(data, 'place_of_publication') or attribute(data, 'date_captured') %}
+  <originInfo>
   {% if attribute(data, 'index_date') %}
-		<dateCreated>{{ data.index_date }}</dateCreated>
+    <dateCreated>{{ data.index_date }}</dateCreated>
   {% endif %}
-  {% if attribute(data, 'other_date') %}
-		<dateOther>{{ data.other_date }}</dateOther>
+  {% if attribute(data, 'other_date~display_label') %}
+    {% if '~' in data.other_date~display_label %}
+      {% set od_parts = data.other_date~display_label|split('~',2) %}
+      <dateOther displayLabel='{{ od_parts[1] }}'>{{ od_parts[0] }}</dateOther>
+    {% else %}
+      <dateOther>{{ data.other_date }}</dateOther>
+    {% endif %}
   {% endif %}
   {% if attribute(data, 'date_issued') %}
-		<dateIssued>{{ data.date_issued }}</dateIssued>
+    <dateIssued>{{ data.date_issued }}</dateIssued>
   {% endif %}
   {% if attribute(data, 'date_captured') %}
-		<dateCaptured>{{ data.date_captured }}</dateCaptured>
+    <dateCaptured>{{ data.date_captured }}</dateCaptured>
   {% endif %}
   {% if attribute(data, 'publisher') %}
-		<publisher>{{ data.publisher }}</publisher>
+    <publisher>{{ data.publisher }}</publisher>
   {% endif %}
   {% if attribute(data, 'place_of_publication') %}
-		<place>
-			<placeTerm type="text">{{ data.place_of_publication }}</placeTerm>
-		</place>
+    <place>
+      <placeTerm type="text">{{ data.place_of_publication }}</placeTerm>
+    </place>
   {% endif %}
-	</originInfo>
+</originInfo>
 {% endif %}
 
 {# July 2017... Replacing the simple note1|note2 logic below with support for note1~type1|note2|note3~type3 logic #}
