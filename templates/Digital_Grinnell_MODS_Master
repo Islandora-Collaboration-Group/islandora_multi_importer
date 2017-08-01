@@ -381,7 +381,6 @@ Classifications~authorities, Related_Items~types,	Access_Condition
   {% if attribute(data, 'import_index') %}
     <dg_importIndex>{{ data.import_index }}</dg_importIndex>
   {% endif %}
-  <dg_creators/>
 </extension>
 
 </mods>
