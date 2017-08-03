@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-{# Digital_Grinnell_MODS_Master.twig  Rev. 3
+{# Digital_Grinnell_MODS_Master.twig  Rev. 4
 
 This TWIG template for IMI import is intended to serve as a general-purpose
 starting point for MODS import into Digital Grinnell.
@@ -8,7 +8,9 @@ starting point for MODS import into Digital Grinnell.
 The canonical copy of this Twig is part of a 4-tab Google Sheet named
 Digital_Grinnell_MODS_Master.  
 
-History -----------------------------------------
+History --------------------
+Rev. 4
+  Added Pull_Quotes column processing to create a /mods/extension/pull_quotes field.
 Rev. 3
   Removed capitalization on default 'Creator' roleTerm, and removed the <dg_creators> element entirely.
 Rev. 2
@@ -383,6 +385,14 @@ Classifications~authorities, Related_Items~types,	Access_Condition
   {% if attribute(data, 'import_index') %}
     <dg_importIndex>{{ data.import_index }}</dg_importIndex>
   {% endif %}
+  {% if  attribute(data, 'pull_quotes') %}
+    {% for pull_quote in attribute(data, 'pull_quotes')|split('|') %}
+      {% if pull_quote is not null and pull_quote|trim is not empty %}
+        <pull_quote>{{ pull_quote|trim }}</pull_quote>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endif %}
 </extension>
 
 </mods>
