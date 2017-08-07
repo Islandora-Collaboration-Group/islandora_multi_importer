@@ -392,7 +392,6 @@ Classifications~authorities, Related_Items~types,	Access_Condition
       {% endif %}
     {% endfor %}
   {% endif %}
-{% endif %}
 </extension>
 
 </mods>
