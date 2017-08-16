@@ -92,8 +92,19 @@ function islandora_multi_importer_xml_highlight($s){
       return nl2br($s);
   }
 
+ // If the file is not from a .zip...
 function islandora_multi_importer_remote_file_get($url) {
     $parsed_url = parse_url($url);
+
+    /* MAM 2-August-2017  New logic, assumes the file is somewhere in the public://imi_files path */
+    $basename = drupal_basename($parsed_url['path']);
+    $pattern = "/$basename/";
+    $options['key'] = 'filename';
+    $file = file_scan_directory( "public://", $pattern, $options );
+    $url = $file[$basename]->uri;
+    return drupal_realpath($url);
+
+    /*  MAM 2-August-2017  Replacing below logic with code above.
     $remote_schemes = array('http', 'https', 'ftp', 'ftps', 'smb', 'nfs');
     if (!in_array($parsed_url['scheme'], $remote_schemes)) {
       // if local file, return the path.
@@ -110,7 +121,7 @@ function islandora_multi_importer_remote_file_get($url) {
     }
     else {
       return $local;
-    }
+    } */
   }
 
 function islandora_multi_importer_temp_directory($create = TRUE) {
